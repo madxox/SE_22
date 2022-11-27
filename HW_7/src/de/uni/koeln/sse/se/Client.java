@@ -7,7 +7,6 @@ import java.util.List;
 public class Client{
 	
 	public static void main(String[] args) {
-			
 			//Initialise some household
 			List<HouseholdItem> householdItmes= new ArrayList<>();
 	
@@ -22,8 +21,10 @@ public class Client{
 			
 	        List<HouseholdItem> namesList = Arrays.asList(microwaveOven,tv,wineGlass,coffeeTable,bed,cupboard);
 	        householdItmes.addAll(namesList);
+	        
 	        for(HouseholdItem h : namesList) {
-	        	h.accept(new HouseholdItemConcreteVisitors());
+	        	h.accept(new PriceCalculator());
+	        	h.accept(new MovingInstructions());
 	        }
 	}
 
